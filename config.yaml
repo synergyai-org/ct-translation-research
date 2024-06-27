@@ -1,0 +1,36 @@
+session_name: radiomics_240618
+session_description: "Pilot study for extracting radiomic features\n
+- Long-term objective is to integrate within DL models"
+session_date: '2024-06-18'
+
+path_config: '/home/synergyai/jth/rcc-classification-research/experiments/config/radiomics_240618.yaml'
+path_data: '/merged_storage/jth/data_0612_backup.h5'
+path_label: '/home/synergyai/jth/rcc-classification-research/segmentation_label.txt'
+path_split: '/home/synergyai/jth/rcc-classification-research/outputs/logs/session_240614/split_list.txt'
+path_feature_dir: '/home/synergyai/jth/rcc-classification-research/data/radiomics_240618/'
+path_set : '/home/synergyai/jth/ct-translation-research/data/'
+
+seed: 2024
+
+split:
+  fold_count: 5
+  jupyter: '/home/synergyai/jth/rcc-classification-research/notebooks/dataset_refinement/04_patient_split_for_cv.ipynb'
+  path_log: '/home/synergyai/jth/rcc-classification-research/outputs/logs/radiomics_240618/split_demographics.txt'
+  path_split: '/home/synergyai/jth/rcc-classification-research/outputs/logs/radiomics_240618/split_list.txt'
+
+extraction:
+  max_dilation : 3
+  max_erosion : 3
+  clip_min : 874
+  clip_max : 1274
+
+# get only kidney masses
+# mask out background // roi on kidney
+# make mask dataset too
+
+# regularize within [0,1]
+# split into two image (right kidney, left kidney)
+
+preprocessing :
+  clip_low : 874
+  clip_high : 1274  
